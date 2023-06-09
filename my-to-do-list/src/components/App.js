@@ -4,6 +4,7 @@ import {v4 as uuid} from "uuid";
 import Header from './Header';
 import AddTodo from './AddTodo';
 import ToDoList from './ToDoList';
+import ToDoPopUp from "./ToDoPopUp";
 
 function App() {
   const LOCAL_STORAGE_KEY = "cards"
@@ -12,8 +13,7 @@ function App() {
     []);
   
   const addToDoHandler = (card) => {
-   
-    setCards([...cards, {id: uuid(),... card}])
+    setCards([...cards, {id: uuid(),...card}])
   }
   
   useEffect(() => {
@@ -26,12 +26,28 @@ function App() {
     })
     setCards(newToDoList)
   }
+  // return the updatedCards list
+  const checkToDoHandler = (id) => {
+    const updatedCards = cards.map((card) => {
+      if (card.id === id) {
+        return {
+          ...card,
+          completed: true,
+        };
+      }
+      return card;
+    });
+    setCards(updatedCards);
+  }
+
+  
 
   return (
     <div className="App">
         <Header/>
         <AddTodo addToDoHandler = {addToDoHandler}/>
-        <ToDoList cards = {cards} getCardId = {removeToDoHandler}/>
+        <ToDoList cards = {cards} getCardId = {removeToDoHandler} updateCompleted = {checkToDoHandler}/>
+
     </div>
   );
 }

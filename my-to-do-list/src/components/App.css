@@ -4,18 +4,20 @@
 
 .main {
   margin-top: 2em;
+ 
 }
 
 .center {
   justify-content: center;
   padding: 10px;
+  
 }
 
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 100vh; */
+  background-color: black;
 }
 
 .item {
@@ -29,8 +31,12 @@
   box-shadow: 5px 5px #c7d28d;
 }
 
+.item.completed {
+  background-color: #87f7aa;
+  box-shadow: 5px 5px #83b17c;
+}
 .item:hover{
-  background-color: #ffee96;
+  opacity: 0.8;
   transition-duration: 0.6s;
 }
 
@@ -41,6 +47,30 @@ i.icon {
   
 }
 
+.popup .overlay {
+  width:100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
 
+.overlay {
+  background: rgba(49,49,49,0.8);
+}
 
+.popup-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 600px;
+  min-width: 300px;
+}
 
