@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+}
+
+.main {
+  margin-top: 2em;
+}
+
+.center {
+  justify-content: center;
+  padding: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  background-color: #fcffd7;
+  width: 70%;
+  height: 10vh;
+  box-shadow: 5px 5px #c7d28d;
+}
+
+.item:hover{
+  background-color: #ffee96;
+  transition-duration: 0.6s;
+}
+
+i.icon {
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+  
+}
+
+
+
+
