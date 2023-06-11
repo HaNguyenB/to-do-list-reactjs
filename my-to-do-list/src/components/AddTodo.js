@@ -4,6 +4,7 @@ class AddTodo extends Component {
   constructor(props) {
     super(props);
 
+    // Define the initial state of the component
     this.state = {
       title: '',
       des: '',
@@ -14,16 +15,23 @@ class AddTodo extends Component {
 
   add = (e) => {
     e.preventDefault();
+    // Form validation to ensure that users must insert a title
     if (this.state.title === '') {
       alert('Must enter a title');
       return;
     }
+
+    // Call the parent component's addToDoHandler function and pass the current state as an argument
     this.props.addToDoHandler(this.state);
+
+    // Reset the input fields by clearing the title and des (description) in the component's state
     this.setState({ title: '', des: '' });
   };
 
   handleClick = () => {
+    // Set isButtonClicked to true to apply a CSS class for the button's visual effect
     this.setState({ isButtonClicked: true }, () => {
+      // After 200 milliseconds, set isButtonClicked back to false to remove the CSS class
       setTimeout(() => {
         this.setState({ isButtonClicked: false });
       }, 200);
@@ -32,7 +40,7 @@ class AddTodo extends Component {
 
   render() {
     const { isButtonClicked } = this.state;
-
+    // Return the main form
     return (
       <div className="ui main">
         <form className="ui form" onSubmit={this.add}>
