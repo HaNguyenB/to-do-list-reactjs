@@ -17,7 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  
 }
 
 .item {
@@ -44,7 +44,10 @@ i.icon {
   float: right;
   font-size: 20px;
   cursor: pointer;
-  
+}
+
+.item .header{
+  cursor: pointer;
 }
 
 .popup .overlay {
@@ -70,7 +73,8 @@ i.icon {
   background: #f1f1f1;
   padding: 14px 28px;
   border-radius: 3px;
-  max-width: 600px;
-  min-width: 300px;
+  max-width: 400px;
+  min-width: 400px;
+  word-wrap: break-word;
 }
 
