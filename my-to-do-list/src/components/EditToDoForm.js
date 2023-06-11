@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 class EditToDoForm extends Component {
+    
     constructor(props) {
         super(props)
         
@@ -8,28 +9,39 @@ class EditToDoForm extends Component {
             title: this.props.title,
             des: this.props.des,
             completed: false,
-            editing: false,
         }
     }
-    // when click the button trigger add. 
+
+    
+    
+    // when click the button trigger update. 
     update = (e) => {
         e.preventDefault();
-        // if(this.state.title === "") {
-        //     alert("Must enter a title");
-        //     return
-        // }
-        
-        this.props.updateToDoHandler(this.state, this.props.id)
+        if(this.state.title === "") {
+            alert("Must enter a title");
+            return
+        }
+        // to turn off the popup
+        this.props.editTogglePopup();
+        console.log(this.state.completed)
+        // get the state and id of the new card
+        console.log(this.state)
+        console.log()
+        this.props.updateTogglePopup(this.state, this.props.id)
         // refresh the state of the class
-        this.setState({title: "", des:"",editing: true})
+        this.setState({title: "", des:""})
+
     }
-  
+    
+
     render() {
         return (
-            <div className = "popup">
-                <form className = "ui form" onSubmit = {this.update}>
+            <div className  = "popup">
+            <div className = "overlay">
+            <div className = "edit-popup-content">
+                <form className = "ui edit-form" onSubmit = {this.update}>
                     <div className = "field" style={{ marginBottom: '10px' }}>
-                        <label  style={{ display: 'block' }}> Title </label>
+                        <label  style={{ display: 'block' }}> Update Title </label>
                         <input
                         maxLength={20}
                         style={{ width: '80%' }}
@@ -41,7 +53,7 @@ class EditToDoForm extends Component {
                         </input>
                     </div>
                     <div className = "field" style={{ marginBottom: '15px' }}>
-                        <label  style={{ display: 'block' }}> Description </label>
+                        <label  style={{ display: 'block' }}> Update Description </label>
                         <input
                         maxLength={1000}
                         style={{ width: '80%' , height: '50'}}
@@ -58,7 +70,9 @@ class EditToDoForm extends Component {
                     </button>
                 </div>
                 </form>
+                </div>
             </div>
+            </div>  
         )
     }  
 }

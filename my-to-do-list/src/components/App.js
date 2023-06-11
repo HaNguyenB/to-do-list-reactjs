@@ -4,7 +4,7 @@ import {v4 as uuid} from "uuid";
 import Header from './Header';
 import AddTodo from './AddTodo';
 import ToDoList from './ToDoList';
-import ToDoPopUp from "./ToDoPopUp";
+
 
 function App() {
   const LOCAL_STORAGE_KEY = "cards"
@@ -12,6 +12,7 @@ function App() {
     JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ??
     []);
   
+  // add a new todo task
   const addToDoHandler = (card) => {
     setCards([...cards, {id: uuid(),...card}])
   }
@@ -40,13 +41,27 @@ function App() {
     setCards(updatedCards);
   }
 
+  const updateToDoHandler = (value, id) => {
+    const updatedCards = cards.map((card) => {
+      if (card.id === id){
+        return{
+          ...card,
+          title: value.title,
+          des: value.des,
+          completed: false,
+        }
+      }
+      return card
+    })
+    setCards(updatedCards)
+  }
   
 
   return (
     <div className="App">
         <Header/>
         <AddTodo addToDoHandler = {addToDoHandler}/>
-        <ToDoList cards = {cards} getCardId = {removeToDoHandler} updateCompleted = {checkToDoHandler}/>
+        <ToDoList cards = {cards} updateDeleted = {removeToDoHandler} updateCompleted = {checkToDoHandler} updateEdit = {updateToDoHandler}/>
 
     </div>
   );

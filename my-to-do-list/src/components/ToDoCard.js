@@ -1,18 +1,25 @@
 import React, { useState} from 'react';
 import ToDoPopUp from './ToDoPopUp';
+import EditToDoForm from './EditToDoForm';
 
 //functional component
 const ToDoCard = (props) => {
     const {id, title, completed, des} = props.card;
     const [popup, setPopup] = useState(false)
+    const [edit, setPopupEdit] = useState(false)
 
     const togglePopup = () => {
       setPopup(!popup)
-      // return(
-      //   <ToDoPopUp title = {title} des = {des}/>
-      // )
     }
     
+    const editTogglePopup = () => {
+      setPopupEdit(!edit)
+    }
+
+    const updateTogglePopup = (value, id) => {
+      props.clickUpdateHandler(value, id)
+    }
+
     console.log(props)
     return ( 
       <div className = "container">
@@ -33,17 +40,21 @@ const ToDoCard = (props) => {
               className = "check icon"
               style = {{ color: "green"}}
               onClick={() => props.clickDoneHandler(id)}
-              >
-              </i>
+              ></i>
               <i
               className = "write icon"
-              style = {{ color: "orange"}}></i>
+              style = {{ color: "orange"}}
+              onClick = {editTogglePopup}
+              ></i>
           </span>
     </div>
     {popup && (
       <ToDoPopUp title = {title} des = {des} togglePopup = {togglePopup}/>
     )
     }
+    {edit && (
+      <EditToDoForm id = {id} title = {title} des = {des} editTogglePopup = {editTogglePopup} updateTogglePopup = {updateTogglePopup}/>
+    )}
   </div>
   
     );
