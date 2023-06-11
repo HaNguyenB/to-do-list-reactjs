@@ -33,12 +33,12 @@ const ToDoCard = (props) => {
           <span>
               <i
               className="x icon"
-              style = {{ color: "red" }}
+              style = {{ color: "#f09a80" }}
               onClick={() => props.clickDelHandler(id)}
               ></i>
               <i 
               className = "check icon"
-              style = {{ color: "green"}}
+              style = {{ color: "#81c570"}}
               onClick={() => props.clickDoneHandler(id)}
               ></i>
               <i

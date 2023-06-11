@@ -14,7 +14,7 @@ function App() {
   
   // add a new todo task
   const addToDoHandler = (card) => {
-    setCards([...cards, {id: uuid(),...card}])
+    setCards([ {id: uuid(),...card}, ...cards])
   }
   
   useEffect(() => {

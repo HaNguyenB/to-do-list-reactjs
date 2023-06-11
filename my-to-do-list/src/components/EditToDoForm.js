@@ -9,6 +9,7 @@ class EditToDoForm extends Component {
             title: this.props.title,
             des: this.props.des,
             completed: false,
+            isButtonClicked: false,
         }
     }
 
@@ -33,15 +34,23 @@ class EditToDoForm extends Component {
 
     }
     
+    handleClick = () => {
+        this.setState({ isButtonClicked: true }, () => {
+          setTimeout(() => {
+            this.setState({ isButtonClicked: false });
+          }, 200);
+        });
+      };
 
     render() {
+        const { isButtonClicked } = this.state;
         return (
-            <div className  = "popup">
+            <div className  = "popup" >
             <div className = "overlay">
-            <div className = "edit-popup-content">
-                <form className = "ui edit-form" onSubmit = {this.update}>
+            <div className = "edit-popup-content" >
+                <form className = "ui form" onSubmit = {this.update}>
                     <div className = "field" style={{ marginBottom: '10px' }}>
-                        <label  style={{ display: 'block' }}> Update Title </label>
+                        <label  style={{ display: 'block', padding: '10px' }}> Update Title </label>
                         <input
                         maxLength={20}
                         style={{ width: '80%' }}
@@ -53,22 +62,24 @@ class EditToDoForm extends Component {
                         </input>
                     </div>
                     <div className = "field" style={{ marginBottom: '15px' }}>
-                        <label  style={{ display: 'block' }}> Update Description </label>
-                        <input
+                        <label  style={{ display: 'block', padding: '10px'}}> Update Description </label>
+                        <textarea
                         maxLength={1000}
-                        style={{ width: '80%' , height: '50'}}
+                        style={{ width: '80%' , height: '50px', resize: 'vertical'}}
                         type = "text"
                         name = "description"
                         placeholder = "Enter your description"
                         value = {this.state.des}
                         onChange = {(e) => this.setState({des: e.target.value})}>
-                        </input>
+                        </textarea>
                     </div>
-                <div className = "button" style = {{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                    <button className = "ui button" style = {{width: 180, backgroundColor:'#e9c3c3', display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    Update change
-                    </button>
-                </div>
+                    <div className="button">
+            <button
+              className={`ui button ${isButtonClicked ? 'clicked' : ''} color`}
+              onClick={this.handleClick}>
+              Update Todo
+            </button>
+          </div>
                 </form>
                 </div>
             </div>

@@ -45,7 +45,17 @@ const ToDoList = (props) => {
 
   return (
     <div className="ui todo list">
-      <div style = {{display: "flex", alignItems: "center", justifyContent: "space-evenly", padding: "10px"}}>
+      <div className = "ui filter-block"
+      style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+          height: "8vh",
+          width: "80%",
+          backgroundColor: "rgb(137, 156, 213)",
+          margin: "0 auto 10px",
+        }}
+        >
         <label>
           <input
             type="radio"
@@ -53,16 +63,7 @@ const ToDoList = (props) => {
             checked={filterOption === "all"}
             onChange={() => setFilter("all")}
           />
-          Show all tasks
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="filterOption"
-            checked={filterOption === "completed"}
-            onChange={() => setFilter("completed")}
-          />
-          Show completed tasks
+          &nbsp;&nbsp;&nbsp;Show all tasks
         </label>
         <label>
           <input
@@ -71,7 +72,16 @@ const ToDoList = (props) => {
             checked={filterOption === "uncompleted"}
             onChange={() => setFilter("uncompleted")}
           />
-          Show uncompleted tasks
+          &nbsp;&nbsp;&nbsp;Show uncompleted tasks
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="filterOption"
+            checked={filterOption === "completed"}
+            onChange={() => setFilter("completed")}
+          />
+          &nbsp;&nbsp;&nbsp;Show completed tasks 
         </label>
       </div>
       {renderToDoList}

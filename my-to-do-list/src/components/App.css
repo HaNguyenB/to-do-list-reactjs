@@ -4,7 +4,6 @@
 
 .main {
   margin-top: 2em;
- 
 }
 
 .center {
@@ -58,9 +57,6 @@ i.icon {
   right: 0;
   bottom: 0;
   position: fixed;
-}
-
-.overlay {
   background: rgba(49,49,49,0.8);
 }
 
@@ -70,12 +66,14 @@ i.icon {
   left: 50%;
   transform: translate(-50%, -50%);
   line-height: 1.4;
-  background: #f1f1f1;
+  background: #abb0ff;
   padding: 14px 28px;
-  border-radius: 3px;
+  border-radius: 4px;
   max-width: 400px;
   min-width: 400px;
   word-wrap: break-word;
+  color: rgb(255, 255, 255);
+  
 }
 
 .edit-popup-content {
@@ -84,14 +82,26 @@ i.icon {
   left: 50%;
   transform: translate(-50%, -50%);
   line-height: 1.4;
-  background: #f1f1f1;
+  background: #d0ceff;
   padding: 14px 28px;
-  border-radius: 3px;
+  border-radius: 4px;
   max-width: 500px;
   min-width: 500px;
   word-wrap: break-word;
+  
 }
 
-/* .edit-popup .overlay {
-  background: rgba(49,49,49,0.8);
-} */
+.ui.button.color {
+  background-color: rgb(237, 184, 217);
+  color: black;
+  width: 180px;
+}
+
+.ui.button.color:hover {
+  background-color: rgb(176, 102, 135);
+}
+
+
+
+
+ 
