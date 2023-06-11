@@ -63,7 +63,7 @@ const ToDoList = (props) => {
             checked={filterOption === "all"}
             onChange={() => setFilter("all")}
           />
-          &nbsp;&nbsp;&nbsp;Show all tasks
+          &nbsp;&nbsp;&nbsp;Display all tasks
         </label>
         <label>
           <input
@@ -72,7 +72,7 @@ const ToDoList = (props) => {
             checked={filterOption === "uncompleted"}
             onChange={() => setFilter("uncompleted")}
           />
-          &nbsp;&nbsp;&nbsp;Show uncompleted tasks
+          &nbsp;&nbsp;&nbsp;Display uncompleted tasks
         </label>
         <label>
           <input
@@ -81,7 +81,7 @@ const ToDoList = (props) => {
             checked={filterOption === "completed"}
             onChange={() => setFilter("completed")}
           />
-          &nbsp;&nbsp;&nbsp;Show completed tasks 
+          &nbsp;&nbsp;&nbsp;Display completed tasks 
         </label>
       </div>
       {renderToDoList}
