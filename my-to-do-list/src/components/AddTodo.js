@@ -39,7 +39,7 @@ class AddTodo extends Component {
           <div className="field" style={{ marginBottom: '10px' }}>
             <label style={{ display: 'block' }}> Title </label>
             <input
-              maxLength={20}
+              maxLength={25}
               style={{ width: '80%' }}
               type="text"
               name="title"

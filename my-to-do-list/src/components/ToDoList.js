@@ -45,7 +45,7 @@ const ToDoList = (props) => {
 
   return (
     <div className="ui todo list">
-      <div className = "ui filter-block"
+      <div 
       style={{
           display: "flex",
           justifyContent: "space-evenly",

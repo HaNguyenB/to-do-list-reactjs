@@ -26,9 +26,8 @@ const ToDoCard = (props) => {
       <div className={`item ${completed ? 'completed' : ''}`}>
           <h3 
           className = "header" 
-          style={{ fontSize: "18px", color: "gray", marginLeft: "15px", marginTop: "15px", marginBottom: "15px" }}
-          onClick = {togglePopup}
-          >
+          style={{ fontSize: "18px", color: "gray", marginLeft: "15px", marginTop: "15px", marginBottom: "15px", maxWidth:"200px", wordWrap: "break-word" }}
+          onClick = {togglePopup}>
           {title}</h3>
           <span>
               <i
